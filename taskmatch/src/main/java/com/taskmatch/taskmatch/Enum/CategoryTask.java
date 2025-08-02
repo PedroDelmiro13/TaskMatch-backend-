@@ -1,4 +1,4 @@
 package com.taskmatch.taskmatch.Enum;
 
-public enum CategoryService {
+public enum CategoryTask {
 }
