@@ -2,7 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/taskmatch.iml" filepath="$PROJECT_DIR$/.idea/taskmatch.iml" />
+      <module fileurl="file://$PROJECT_DIR$/taskmatch/taskmatch.iml" filepath="$PROJECT_DIR$/taskmatch/taskmatch.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/taskmatchbackend.iml" filepath="$PROJECT_DIR$/.idea/taskmatchbackend.iml" />
     </modules>
   </component>
 </project>
