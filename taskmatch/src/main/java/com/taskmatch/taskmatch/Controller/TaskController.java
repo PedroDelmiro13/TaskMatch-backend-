@@ -41,6 +41,11 @@ public class TaskController {
     @PatchMapping("/{taskId}/delete")
     public ResponseEntity<TaskModel>delete(@PathVariable String taskId){
         TaskModel task = taskService.deleteTask(taskId);
-        return ResponseEntity.noContent().build();
+        return ResponseEntity.status(HttpStatus.OK).body(task);
+    }
+    @PatchMapping("/{taskId}/markComplete")
+    public ResponseEntity<TaskModel>complete(@PathVariable String taskId){
+        TaskModel task = taskService.markAsCompleted(taskId);
+        return ResponseEntity.status(HttpStatus.OK).body(task);
     }
 }

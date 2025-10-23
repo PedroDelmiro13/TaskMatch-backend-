@@ -1,6 +1,7 @@
 package com.taskmatch.taskmatch.DTO;
 
 import com.taskmatch.taskmatch.Enum.CategoryTask;
+import com.taskmatch.taskmatch.Enum.TaskStatus;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
@@ -23,7 +24,7 @@ public class TaskDTO {
     @NotNull
     private List<LocalDateTime> availableSlots;
     @NotNull
-    private Boolean isActive;
+    private TaskStatus status;
     @NotNull
     private Double price;
     @NotNull

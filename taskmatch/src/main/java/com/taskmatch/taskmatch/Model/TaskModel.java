@@ -1,6 +1,7 @@
 package com.taskmatch.taskmatch.Model;
 
 import com.taskmatch.taskmatch.Enum.CategoryTask;
+import com.taskmatch.taskmatch.Enum.TaskStatus;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
@@ -29,7 +30,7 @@ public class TaskModel {
     @NotNull
     private List<LocalDateTime> availableSlots;
     @NotNull
-    private Boolean isActive;
+    private TaskStatus status;
     @NotNull
     private Double price;
     @NotNull
