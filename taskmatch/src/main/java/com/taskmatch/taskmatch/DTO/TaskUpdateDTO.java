@@ -18,7 +18,6 @@ public class TaskUpdateDTO {
     private String title;
     private String description;
     private List<LocalDateTime> availableSlots;
-    private TaskStatus status;
     private Double price;
     private CategoryTask category;
 }

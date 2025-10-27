@@ -50,9 +50,6 @@ public class TaskService {
         if (dto.getAvailableSlots() != null && !dto.getAvailableSlots().isEmpty()) {
             task.setAvailableSlots(dto.getAvailableSlots());
         }
-        if (dto.getStatus() != null) {
-            task.setStatus(dto.getStatus());
-        }
 
         task.setUpdatedAt(LocalDateTime.now());
         return taskRepository.save(task);

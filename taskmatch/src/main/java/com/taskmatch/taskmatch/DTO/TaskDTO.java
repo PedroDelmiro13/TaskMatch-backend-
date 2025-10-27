@@ -24,8 +24,6 @@ public class TaskDTO {
     @NotNull
     private List<LocalDateTime> availableSlots;
     @NotNull
-    private TaskStatus status;
-    @NotNull
     private Double price;
     @NotNull
     private CategoryTask category;

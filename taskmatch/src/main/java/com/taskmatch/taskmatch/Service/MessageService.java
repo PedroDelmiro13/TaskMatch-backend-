@@ -1,6 +1,8 @@
 package com.taskmatch.taskmatch.Service;
 
-import com.taskmatch.taskmatch.DTO.MessageDTO;
+import com.taskmatch.taskmatch.DTO.MessageRequestDTO;
+import com.taskmatch.taskmatch.DTO.MessageResponseDTO;
+import com.taskmatch.taskmatch.DTO.MessageUpdateDTO;
 import com.taskmatch.taskmatch.Exception.MessageNotFoundException;
 import com.taskmatch.taskmatch.Mapper.MessageMapper;
 import com.taskmatch.taskmatch.Model.MessageModel;
@@ -18,31 +20,39 @@ public class MessageService {
     @Autowired
     private MessageMapper mapper;
 
-    public MessageModel getMessage (String messageId){
-        return messageRepository.findByMessageIdAndIsDeletedIsFalse(messageId).
-                orElseThrow(() -> new MessageNotFoundException("Message not found"));
+    public MessageResponseDTO getMessage(String messageId) {
+        MessageModel message = messageRepository.findByMessageIdAndIsDeletedIsFalse(messageId)
+                .orElseThrow(() -> new MessageNotFoundException("Message not found"));
+        return mapper.toDTO(message);
     }
-    public List<MessageModel> getAllMessages(){
-        return messageRepository.findAllByIsDeletedIsFalse();
+
+    public List<MessageResponseDTO> getAllMessages() {
+        return messageRepository.findAllByIsDeletedIsFalse()
+                .stream()
+                .map(mapper::toDTO)
+                .toList();
     }
-    public MessageModel createMessage (MessageDTO dto){
+
+    public MessageResponseDTO createMessage(MessageRequestDTO dto) {
         MessageModel message = mapper.toEntity(dto);
         message.setCreatedAt(LocalDateTime.now());
         message.setUpdatedAt(LocalDateTime.now());
         message.setIsDeleted(false);
-        return messageRepository.save(message);
+        return mapper.toDTO(messageRepository.save(message));
     }
-    public MessageModel updateMessage(String messageId, MessageDTO dto) {
+
+    public MessageResponseDTO updateMessage(String messageId, MessageUpdateDTO dto) {
         MessageModel message = messageRepository.findByMessageIdAndIsDeletedIsFalse(messageId)
                 .orElseThrow(() -> new MessageNotFoundException("Message not found"));
         mapper.updateFromDto(dto, message);
         message.setUpdatedAt(LocalDateTime.now());
-        return messageRepository.save(message);
+        return mapper.toDTO(messageRepository.save(message));
     }
-    public MessageModel deleteMessage(String messageId){
+
+    public MessageResponseDTO deleteMessage(String messageId) {
         MessageModel message = messageRepository.findByMessageIdAndIsDeletedIsFalse(messageId)
                 .orElseThrow(() -> new MessageNotFoundException("Message not found"));
         message.setIsDeleted(true);
-        return messageRepository.save(message);
+        return mapper.toDTO(messageRepository.save(message));
     }
 }
