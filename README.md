@@ -11,6 +11,7 @@ O objetivo é simplificar o processo de contratação de serviços, proporcionan
 - **Java 21 + Spring Boot**
 - **Spring Data MongoDB**
 - **Spring Validation**
+- **MapStruct Processor**
 - **Spring Security + JWT**
 - **Spring DevTools**
 - **Lombok**

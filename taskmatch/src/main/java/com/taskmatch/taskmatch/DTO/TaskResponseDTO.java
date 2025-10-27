@@ -8,6 +8,7 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.springframework.data.annotation.Id;
 
 import java.time.LocalDateTime;
 import java.util.List;
@@ -16,17 +17,16 @@ import java.util.List;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class TaskDTO {
-    @NotBlank
+public class TaskResponseDTO {
+    private String taskId;
     private String title;
-    @NotBlank
     private String description;
-    @NotNull
+    private String providerId;
     private List<LocalDateTime> availableSlots;
-    @NotNull
     private TaskStatus status;
-    @NotNull
     private Double price;
-    @NotNull
     private CategoryTask category;
+    private LocalDateTime createdAt;
+    private LocalDateTime updatedAt;
+    private LocalDateTime deletedAt;
 }
