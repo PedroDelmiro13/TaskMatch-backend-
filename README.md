@@ -5,7 +5,7 @@ O objetivo é simplificar o processo de contratação de serviços, proporcionan
 
 ---
 
-## 🚀 Tecnologias Utilizadas
+## 🚀 Tecnologias que serão utilizadas
 
 ### Dependências
 - **Java 21 + Spring Boot**
